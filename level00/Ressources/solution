@@ -1,0 +1,7 @@
+We tried to search for every file with flag00 as its user
+so we used the find command like so `find / -user flag00 2>/dev/null`
+The output was mainly files inside /proc folder (contains info about the kernel) so nothing interesting.
+There was only 1 file that was different '/usr/sbin/john', so I changed its rights with chmod to see its content and we saw 'ddwpgswtgt'
+We tried to use it as the password but it didn't work so we though that it was encrypted.
+We went on dcode.fr (we saw it in th project video) and we deciphered it using the caesar cipher method and we found "nottoohardhere"
+We used it as the password and we found the flag
