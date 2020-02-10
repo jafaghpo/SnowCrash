@@ -1,0 +1,4 @@
+We see a file named "level02.cap" so we searched for the .cap extension and see that it is linked to Wireshark
+So we downloaded Wireshark and used this command:
+$> scp '-P 4242' level02@10.11.200.192:level02.pcap .
+to copy the file from the vm
