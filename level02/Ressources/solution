@@ -1,9 +1,6 @@
 We see a file named "level02.cap" so we searched for the .cap extension and see that it is linked to Wireshark
 So we downloaded Wireshark and used this command:
 $> scp '-P 4242' level02@10.11.200.192:level02.pcap .
-to copy the file from the vm
-
-
-password : ft_waNDReL0L
-
-flag : kooda2puivaav1idi4f57q8iq
+to copy the file from the vm.
+Then open Wireshark, use chmod 777 on the file and load it.
+We found "password:" on line 43 and we combined the ascii chars in the data section of the next lines to find the password "ft_waNDReL0L"
