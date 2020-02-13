@@ -1,0 +1,6 @@
+We saw an executable named level03 with flag03 ownership. We used ltrace to view function calls
+and we saw that there was a system call to echo.
+So we did chmod 777 . on the current dir to be able to create a symbolic link with command:
+ln -s /bin/geflag echo
+Then we added the current directory to the PATH like so: export PATH=.:$PATH 
+and executed level03 to get the flag

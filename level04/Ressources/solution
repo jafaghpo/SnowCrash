@@ -1,0 +1,6 @@
+we saw a perl file, we saw a comment with localhost:4747,
+we figured that we had to open it in a browser.
+We saw CGI being used, so we figured that we could add a varible via a form, we used the GET method like so:
+http://MACHINE_IP/level04.pl?x=$(getflag)
+
+it worked.
