@@ -1,0 +1,32 @@
+$> cat token
+we see a string with non-printable chars
+
+Then we tried:
+$> ./level09 token
+and got "tpmhr"
+
+$> ltrace ./level09 token
+and got this:
+ptrace(0, 0, 1, 0, 0xb7e2fe38)
+puts("You should not reverse this")
+
+So we understood that we had to find a way to reverse what executable level09 was doing,
+and we probably had to do this process on the content of the token file
+
+We understood what level09 was doing when we tried this line:
+$> ./level09 "aaa"
+and got "abc"
+
+Basically the executable takes a string as argument,
+parse it and display each char + a value i that goes from 0 to the size of the string
+
+So we used scp to copy the token file to our session like so:
+$> scp '-P 4242' level09@10.12.1.107:token .
+
+and changed the rights with chmod to read it.
+
+Then we created a C file that would reverse the process that level09 was doing, compiled it and runned it on the token file,
+copied the result then did:
+$> su flag09
+pasted the result as password and finally we got the flag.
+
