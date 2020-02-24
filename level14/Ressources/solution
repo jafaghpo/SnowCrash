@@ -1,0 +1,16 @@
+gdb getflag
+
+disas main
+
+break to test eax,eax
+
+set $eax=0
+
+ni
+
+break to first cmp
+
+set $eax=3014 # uid of level14
+
+then go next until you see the flag
+

