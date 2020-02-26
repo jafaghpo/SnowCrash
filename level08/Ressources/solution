@@ -1,9 +1,14 @@
 We tried to cat token but didn't have the rights so we used ltrace like so:
-$> ltrace ./level08 token
-and saw a call to strstr but when we used an other file we saw a call to open and read.
 
+$> ltrace ./level08 token
+
+and saw a call to strstr but when we used an other file we saw a call to open and read.
 We deduced that we had to find a way to rename the token file to read its content so we just did a symbolic link like so:
+
 $> ln -s token exploit
-and then
+
+and then we did
+
 $> ./level08 exploit
+
 to get the flag.
