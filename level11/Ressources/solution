@@ -5,5 +5,5 @@ We see a port 5151 and a function called hash that takes a password and hash it
 So we listened to port 5151 with nc like so:
 $> nc localhost 5151
 and we simply inputed:
-$> Password: ;getflag > /tmp/exploit;
+$> Password: ;getflag > /tmp/exploit
 to make the hash function execute and store the flag in /tmp/exploit aside from hashing it

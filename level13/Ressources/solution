@@ -1,7 +1,22 @@
+first we will install peda to see better with gdb:
+
+$> scp '-P 4242' -r ~/peda level00@10.12.1.133:/tmp
+
+$> chmod 777 .
+
+$> echo "source /tmp/peda/peda.py" >> ~/.gdbinit
+
+We tried to run the program with ltrace and we saw that the program expected us to have the pid 4242.
+
+We decided to use gdb to modify the return value of getuid before the comparison to "4242" happen.
+
 gdb level13
 
-ni
+we did "pdisas main" to see wich line we should jump to.
 
-set $eax=4242
+we then did:
+$> set $eax=4242
 
-continue
+and
+
+$> continue

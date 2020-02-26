@@ -1,16 +1,40 @@
-gdb getflag
+first we will install peda to see better with gdb:
 
-disas main
+$> scp '-P 4242' -r ~/peda level00@10.12.1.133:/tmp
 
-break to test eax,eax
+$> chmod 777 .
 
-set $eax=0
+$> echo "source /tmp/peda/peda.py" >> ~/.gdbinit
 
-ni
+After a bit of asking around, we came to the realisation that we had to abuse the getflag binary.
 
-break to first cmp
+we then did:
+
+$> gdb getflag
+
+$> pdisas main
+
+we then saw a intriguing block of instructions that really looked like something that could give us the flag depending of the user id.
+
+we did: 
+$> id flag14
+to know about which line we needed to modify.
+
+but we were quickly taken aback by our friend ptrace that forbid us to read past it so we were blinded.
+
+being smarts individuals, we decided to find a way to get past ptrace. 
+We saw the command test eax,eax right after ptrace, and after a bit of research, we discovered that it compares eax with 0.
+Since eax contain the return value of ptrace, we knew yhta we had to modify its value to 0.
+
+we then made a break to test eax,eax
+
+and we set $eax=0
+
+After that we jumped to the first cmp instruction that checked the uid by using a breakpoint and we did:
 
 set $eax=3014 # uid of level14
 
-then go next until you see the flag
+to hopefully obtain the flag.
+
+Finally we checked instruction by instruction to look for the flag
 

