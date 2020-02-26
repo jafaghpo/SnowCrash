@@ -1,4 +1,8 @@
 When logging with ssh we saw that we had a new mail, so we did cat $MAIL
 and got: */2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05 which indicates
 that a cronjob is running every 2 minutes and execute the content of every script in /opt/openarenaserver
-we just did 'echo "getflag > /tmp/exploit" > test' and then waited for /tmp/exploit to be created.
+we just did:
+
+$> echo "getflag > /tmp/exploit" > test
+
+and then waited for /tmp/exploit to be created.
