@@ -2,6 +2,11 @@ We tried to search in the /etc/passwd and found this line "flag01:42hDRfypTqqnw:
 
 So we copied this line in a file and used docker to install john the ripper to crack the file like so:
 
+$> docker-machine create --driver=virtualbox CHAR
+$> eval $(docker-machine env CHAR)
+$> docker pull fedora
+$> docker run -it --rm fedora /bin/sh
+$> yum install john
 $> john passwd
 
 and we got the password "abcdefg"
